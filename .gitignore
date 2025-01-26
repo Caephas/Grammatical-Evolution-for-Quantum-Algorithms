@@ -1,0 +1,19 @@
+# Python-related files
+*.pyc
+__pycache__/
+
+# Environment-related files
+.venv/
+
+# VS Code settings
+.vscode/
+
+# Ignoring folders
+Utilities/
+grape/
+
+# Jupyter Notebook checkpoints
+*.ipynb_checkpoints
+
+# Miscellaneous
+.DS_Store

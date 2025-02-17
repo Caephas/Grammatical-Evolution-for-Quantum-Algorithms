@@ -1,7 +1,7 @@
 # Python-related files
 *.pyc
 __pycache__/
-
+test_parsing.ipynb
 # Environment-related files
 .venv/
 

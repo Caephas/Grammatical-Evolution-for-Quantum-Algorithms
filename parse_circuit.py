@@ -1,6 +1,6 @@
 from qiskit import QuantumCircuit
-from qiskit.circuit.library import UGate
-
+from qiskit.circuit.library import UGate, RGate
+import numpy as np
 
 # Parse Circuit
 def parse_circuit(code: str) -> QuantumCircuit:
@@ -14,7 +14,9 @@ def parse_circuit(code: str) -> QuantumCircuit:
     """
     exec_globals = {
         "QuantumCircuit": QuantumCircuit,
-        'UGate': UGate
+        'UGate': UGate,
+        'RGate': RGate,
+        'np':np
     }
 
     try:

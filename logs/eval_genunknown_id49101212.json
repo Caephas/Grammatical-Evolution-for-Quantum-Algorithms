@@ -1,0 +1,154 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.115234375,
+    "error": 0.884765625,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "111": 58,
+      "110": 74,
+      "000": 59,
+      "010": 60,
+      "101": 60,
+      "100": 68,
+      "011": 69,
+      "001": 64
+    },
+    "gate_count": 15,
+    "depth": 7
+  },
+  {
+    "state": "001",
+    "p_marked": 0.12109375,
+    "error": 0.87890625,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "000": 69,
+      "010": 68,
+      "110": 49,
+      "111": 56,
+      "100": 66,
+      "011": 79,
+      "001": 62,
+      "101": 63
+    },
+    "gate_count": 13,
+    "depth": 5
+  },
+  {
+    "state": "010",
+    "p_marked": 0.14453125,
+    "error": 0.85546875,
+    "oracle": "qc.x(0)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(0)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(2)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "001": 68,
+      "011": 54,
+      "100": 70,
+      "010": 74,
+      "000": 76,
+      "101": 62,
+      "111": 43,
+      "110": 65
+    },
+    "gate_count": 13,
+    "depth": 7
+  },
+  {
+    "state": "011",
+    "p_marked": 0.119140625,
+    "error": 0.880859375,
+    "oracle": "qc.x(0)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(0)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 61,
+      "111": 62,
+      "110": 60,
+      "001": 73,
+      "100": 70,
+      "011": 61,
+      "000": 56,
+      "010": 69
+    },
+    "gate_count": 11,
+    "depth": 5
+  },
+  {
+    "state": "100",
+    "p_marked": 0.119140625,
+    "error": 0.880859375,
+    "oracle": "qc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(1)\nqc.x(2)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "011": 68,
+      "100": 61,
+      "001": 70,
+      "110": 73,
+      "111": 54,
+      "000": 57,
+      "010": 65,
+      "101": 64
+    },
+    "gate_count": 13,
+    "depth": 7
+  },
+  {
+    "state": "101",
+    "p_marked": 0.162109375,
+    "error": 0.837890625,
+    "oracle": "qc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(1)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(1)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 83,
+      "111": 63,
+      "110": 54,
+      "001": 66,
+      "100": 72,
+      "011": 44,
+      "000": 58,
+      "010": 72
+    },
+    "gate_count": 11,
+    "depth": 5
+  },
+  {
+    "state": "110",
+    "p_marked": 0.11328125,
+    "error": 0.88671875,
+    "oracle": "qc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(2)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "111": 70,
+      "110": 58,
+      "100": 58,
+      "001": 69,
+      "011": 67,
+      "101": 59,
+      "010": 65,
+      "000": 66
+    },
+    "gate_count": 11,
+    "depth": 7
+  },
+  {
+    "state": "111",
+    "p_marked": 0.140625,
+    "error": 0.859375,
+    "oracle": "qc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "100": 75,
+      "011": 53,
+      "001": 54,
+      "110": 73,
+      "111": 72,
+      "101": 55,
+      "010": 62,
+      "000": 68
+    },
+    "gate_count": 9,
+    "depth": 5
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "state": "111",
+    "p_marked": 0.13671875,
+    "error": 0.86328125,
+    "gate_count": 9,
+    "oracle": "qc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 56,
+      "000": 72,
+      "010": 54,
+      "100": 55,
+      "001": 62,
+      "011": 58,
+      "110": 85,
+      "111": 70
+    },
+    "depth": 5
+  }
+]

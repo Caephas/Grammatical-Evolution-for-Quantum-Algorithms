@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./grape"
+    ],
+    "git.ignoreLimitWarning": true
+}

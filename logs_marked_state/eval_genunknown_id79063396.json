@@ -1,0 +1,78 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.00390625,
+    "error": 0.99609375,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ry(\n1.3\n,\n1\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.z(\n2\n)\n\nqc.rzz(\n1.5708\n,\n0,2\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "000": 2,
+      "010": 125,
+      "101": 118,
+      "111": 2,
+      "110": 128,
+      "100": 6,
+      "001": 4,
+      "011": 127
+    },
+    "gate_count": 26,
+    "depth": 13
+  },
+  {
+    "state": "001",
+    "p_marked": 0.00390625,
+    "error": 0.99609375,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ry(\n1.3\n,\n1\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.z(\n2\n)\n\nqc.rzz(\n1.5708\n,\n0,2\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "110": 139,
+      "111": 3,
+      "000": 1,
+      "010": 107,
+      "100": 3,
+      "001": 2,
+      "011": 133,
+      "101": 124
+    },
+    "gate_count": 26,
+    "depth": 13
+  },
+  {
+    "state": "010",
+    "p_marked": 0.271484375,
+    "error": 0.728515625,
+    "oracle": "qc.x(0)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ry(\n1.3\n,\n1\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.z(\n2\n)\n\nqc.rzz(\n1.5708\n,\n0,2\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "100": 3,
+      "001": 4,
+      "011": 120,
+      "000": 2,
+      "010": 139,
+      "101": 129,
+      "111": 3,
+      "110": 112
+    },
+    "gate_count": 26,
+    "depth": 13
+  },
+  {
+    "state": "011",
+    "p_marked": 0.248046875,
+    "error": 0.751953125,
+    "oracle": "qc.x(0)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ry(\n1.3\n,\n1\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.z(\n2\n)\n\nqc.rzz(\n1.5708\n,\n0,2\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "100": 4,
+      "011": 127,
+      "001": 4,
+      "000": 2,
+      "010": 129,
+      "101": 114,
+      "111": 3,
+      "110": 129
+    },
+    "gate_count": 26,
+    "depth": 13
+  }
+]

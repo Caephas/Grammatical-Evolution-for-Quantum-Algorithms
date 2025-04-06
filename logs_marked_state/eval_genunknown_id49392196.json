@@ -1,0 +1,78 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.0625,
+    "error": 0.9375,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ccx(\n2,0,1\n)\n\nqc.ccx(\n0,1,2\n)\n\nqc.u(\n0.314\n,\n3*np.pi/2\n,\n1.5708\n,\n1\n)\n\nqc.rx(\n3*np.pi/2\n,\n2\n)\n\nqc.swap(\n1,0\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.cswap(\n1,0,2\n)\n\nqc.cy(\n0,1\n)\n\nqc.swap(\n1,2\n)\n\nqc.ryy(\nnp.pi\n,\n2,1\n)\n\nqc.cswap(\n2,1,0\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.ccx(\n1,2,0\n)\n\nqc.x(\n1\n)\n\nqc.rzz(\n1.3\n,\n0,1\n)\n\nqc.cy(\n1,0\n)\n\nqc.h(\n1\n)\n\nqc.rxx(\n1.3\n,\n0,1\n)\n\nqc.tdg(\n0\n)\n\nqc.cswap(\n0,1,2\n)\n\nqc.ry(\n3*np.pi/2\n,\n0\n)\n\nqc.t(\n0\n)\n\nqc.u(\n1.5708\n,\nnp.pi/2\n,\n0\n,\n2\n)\n\nqc.swap(\n0,1\n)\n\nqc.id(\n2\n)\n\nqc.iswap(\n1,0\n)\n\nqc.s(\n0\n)\n\nqc.swap(\n2,1\n)\n\nqc.ry(\n0.5\n,\n1\n)\n\nqc.ryy(\n3*np.pi/2\n,\n0,1\n)\n\nqc.rz(\n1.3\n,\n1\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 116,
+      "011": 51,
+      "100": 34,
+      "001": 75,
+      "010": 165,
+      "000": 32,
+      "111": 10,
+      "110": 29
+    },
+    "gate_count": 58,
+    "depth": 40
+  },
+  {
+    "state": "001",
+    "p_marked": 0.14453125,
+    "error": 0.85546875,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ccx(\n2,0,1\n)\n\nqc.ccx(\n0,1,2\n)\n\nqc.u(\n0.314\n,\n3*np.pi/2\n,\n1.5708\n,\n1\n)\n\nqc.rx(\n3*np.pi/2\n,\n2\n)\n\nqc.swap(\n1,0\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.cswap(\n1,0,2\n)\n\nqc.cy(\n0,1\n)\n\nqc.swap(\n1,2\n)\n\nqc.ryy(\nnp.pi\n,\n2,1\n)\n\nqc.cswap(\n2,1,0\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.ccx(\n1,2,0\n)\n\nqc.x(\n1\n)\n\nqc.rzz(\n1.3\n,\n0,1\n)\n\nqc.cy(\n1,0\n)\n\nqc.h(\n1\n)\n\nqc.rxx(\n1.3\n,\n0,1\n)\n\nqc.tdg(\n0\n)\n\nqc.cswap(\n0,1,2\n)\n\nqc.ry(\n3*np.pi/2\n,\n0\n)\n\nqc.t(\n0\n)\n\nqc.u(\n1.5708\n,\nnp.pi/2\n,\n0\n,\n2\n)\n\nqc.swap(\n0,1\n)\n\nqc.id(\n2\n)\n\nqc.iswap(\n1,0\n)\n\nqc.s(\n0\n)\n\nqc.swap(\n2,1\n)\n\nqc.ry(\n0.5\n,\n1\n)\n\nqc.ryy(\n3*np.pi/2\n,\n0,1\n)\n\nqc.rz(\n1.3\n,\n1\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "111": 14,
+      "110": 28,
+      "011": 42,
+      "001": 74,
+      "100": 38,
+      "010": 151,
+      "000": 29,
+      "101": 136
+    },
+    "gate_count": 58,
+    "depth": 40
+  },
+  {
+    "state": "010",
+    "p_marked": 0.29296875,
+    "error": 0.70703125,
+    "oracle": "qc.x(0)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(2)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ccx(\n2,0,1\n)\n\nqc.ccx(\n0,1,2\n)\n\nqc.u(\n0.314\n,\n3*np.pi/2\n,\n1.5708\n,\n1\n)\n\nqc.rx(\n3*np.pi/2\n,\n2\n)\n\nqc.swap(\n1,0\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.cswap(\n1,0,2\n)\n\nqc.cy(\n0,1\n)\n\nqc.swap(\n1,2\n)\n\nqc.ryy(\nnp.pi\n,\n2,1\n)\n\nqc.cswap(\n2,1,0\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.ccx(\n1,2,0\n)\n\nqc.x(\n1\n)\n\nqc.rzz(\n1.3\n,\n0,1\n)\n\nqc.cy(\n1,0\n)\n\nqc.h(\n1\n)\n\nqc.rxx(\n1.3\n,\n0,1\n)\n\nqc.tdg(\n0\n)\n\nqc.cswap(\n0,1,2\n)\n\nqc.ry(\n3*np.pi/2\n,\n0\n)\n\nqc.t(\n0\n)\n\nqc.u(\n1.5708\n,\nnp.pi/2\n,\n0\n,\n2\n)\n\nqc.swap(\n0,1\n)\n\nqc.id(\n2\n)\n\nqc.iswap(\n1,0\n)\n\nqc.s(\n0\n)\n\nqc.swap(\n2,1\n)\n\nqc.ry(\n0.5\n,\n1\n)\n\nqc.ryy(\n3*np.pi/2\n,\n0,1\n)\n\nqc.rz(\n1.3\n,\n1\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "111": 11,
+      "110": 26,
+      "001": 77,
+      "100": 47,
+      "011": 54,
+      "000": 25,
+      "010": 150,
+      "101": 122
+    },
+    "gate_count": 58,
+    "depth": 40
+  },
+  {
+    "state": "011",
+    "p_marked": 0.091796875,
+    "error": 0.908203125,
+    "oracle": "qc.x(0)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\n",
+    "code": "qc = QuantumCircuit(3, 3)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.ccx(\n2,0,1\n)\n\nqc.ccx(\n0,1,2\n)\n\nqc.u(\n0.314\n,\n3*np.pi/2\n,\n1.5708\n,\n1\n)\n\nqc.rx(\n3*np.pi/2\n,\n2\n)\n\nqc.swap(\n1,0\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.cswap(\n1,0,2\n)\n\nqc.cy(\n0,1\n)\n\nqc.swap(\n1,2\n)\n\nqc.ryy(\nnp.pi\n,\n2,1\n)\n\nqc.cswap(\n2,1,0\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.ccx(\n1,2,0\n)\n\nqc.x(\n1\n)\n\nqc.rzz(\n1.3\n,\n0,1\n)\n\nqc.cy(\n1,0\n)\n\nqc.h(\n1\n)\n\nqc.rxx(\n1.3\n,\n0,1\n)\n\nqc.tdg(\n0\n)\n\nqc.cswap(\n0,1,2\n)\n\nqc.ry(\n3*np.pi/2\n,\n0\n)\n\nqc.t(\n0\n)\n\nqc.u(\n1.5708\n,\nnp.pi/2\n,\n0\n,\n2\n)\n\nqc.swap(\n0,1\n)\n\nqc.id(\n2\n)\n\nqc.iswap(\n1,0\n)\n\nqc.s(\n0\n)\n\nqc.swap(\n2,1\n)\n\nqc.ry(\n0.5\n,\n1\n)\n\nqc.ryy(\n3*np.pi/2\n,\n0,1\n)\n\nqc.rz(\n1.3\n,\n1\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "100": 57,
+      "001": 73,
+      "011": 47,
+      "000": 26,
+      "010": 152,
+      "111": 9,
+      "110": 29,
+      "101": 119
+    },
+    "gate_count": 58,
+    "depth": 40
+  }
+]

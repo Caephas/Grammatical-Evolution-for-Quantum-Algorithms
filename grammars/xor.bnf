@@ -1,84 +1,46 @@
-<Program> ::=
-    <Initialize>
-    <HadamardAll>
-    <OracleBlock>
-    <FinalHadamard>
-    <Measure>
+<Program> ::= <Initialize> <Hadamard> <OracleBlock> <FinalHadamard> <Measure>
 
-<Initialize> ::=
+<Initialize> ::= 
     "qc = QuantumCircuit(2, 2)\n"
-    "## Initialize circuit\n"
     "qc.x(1)\n"
 
-<HadamardAll> ::=
-    "## Apply Hadamard on qubits 0 and 1\n"
+<Hadamard> ::= 
     "qc.h(0)\n"
     "qc.h(1)\n"
 
-<OracleBlock> ::=
-    "## Begin Oracle\n"
+<OracleBlock> ::= 
+    "## Oracle start\n"
     <OracleGateList>
-    "## End Oracle\n"
+    "## Oracle end\n"
 
-<OracleGateList> ::=
+<OracleGateList> ::= 
     <OracleGate>
   | <OracleGate> <OracleGateList>
 
-<OracleGate> ::=
-  <SingleQubitGate>
+<OracleGate> ::= 
+    <SingleQubitGate>
   | <TwoQubitGate>
-  | <ParameterizedGate>
 
-<FinalHadamard> ::=
-    "## Apply final Hadamard on qubit 0 only\n"
+<SingleQubitGate> ::= 
+    "qc.x(" <Qubit> ")\n"
+  | "qc.z(" <Qubit> ")\n"
+  | "qc.s(" <Qubit> ")\n"
+  | "qc.sdg(" <Qubit> ")\n"
+  | "qc.t(" <Qubit> ")\n"
+  | "qc.tdg(" <Qubit> ")\n"
+  | "qc.h(" <Qubit> ")\n"
+
+<TwoQubitGate> ::= 
+    "qc.cx(" <QubitPair> ")\n"
+  | "qc.cz(" <QubitPair> ")\n"
+
+<FinalHadamard> ::= 
     "qc.h(0)\n"
 
-<Measure> ::=
-    "## Measure both qubits\n"
+<Measure> ::= 
     "qc.measure(0,0)\n"
-    "qc.measure(1,1)\n"
+    "qc.measure(1, 1)\n"
 
-<SingleQubitGate> ::=
-    "qc.x(" <QubitSingle> ")\n"
-  | "qc.y(" <QubitSingle> ")\n"
-  | "qc.z(" <QubitSingle> ")\n"
-  | "qc.h(" <QubitSingle> ")\n"
-  | "qc.s(" <QubitSingle> ")\n"
-  | "qc.sdg(" <QubitSingle> ")\n"
-  | "qc.t(" <QubitSingle> ")\n"
-  | "qc.tdg(" <QubitSingle> ")\n"
-  | "qc.id(" <QubitSingle> ")\n"
+<Qubit> ::= "0" | "1"
 
-<TwoQubitGate> ::=
-    "qc.cx(" <TwoDistinctQubits> ")\n"
-  | "qc.cy(" <TwoDistinctQubits> ")\n"
-  | "qc.cz(" <TwoDistinctQubits> ")\n"
-  | "qc.swap(" <TwoDistinctQubits> ")\n"
-
-<ParameterizedGate> ::=
-    "qc.rx(" <Angle> "," <QubitSingle> ")\n"
-  | "qc.ry(" <Angle> "," <QubitSingle> ")\n"
-  | "qc.rz(" <Angle> "," <QubitSingle> ")\n"
-  | "qc.u(" <Angle> "," <Angle> "," <Angle> "," <QubitSingle> ")\n"
-  | "qc.rxx(" <Angle> "," <TwoDistinctQubits> ")\n"
-  | "qc.ryy(" <Angle> "," <TwoDistinctQubits> ")\n"
-  | "qc.rzz(" <Angle> "," <TwoDistinctQubits> ")\n"
-  | "qc.rzx(" <Angle> "," <TwoDistinctQubits> ")\n"
-
-<QubitSingle> ::= "0" | "1"
-
-<TwoDistinctQubits> ::= "0,1" | "1,0"
-
-<Angle> ::=
-    "0"
-  | "np.pi/4"
-  | "np.pi/2"
-  | "np.pi"
-  | "3*np.pi/2"
-  | "2*np.pi"
-  | "0.5"
-  | "1.3"
-  | "2.7"
-  | "0.314"
-  | "1.5708"
-  | "3.1415"
+<QubitPair> ::= "0,1" | "1,0"

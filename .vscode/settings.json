@@ -1,6 +1,33 @@
 {
     "python.analysis.extraPaths": [
-        "./grape"
+      "./grape"
     ],
-    "git.ignoreLimitWarning": true
-}
+    "git.ignoreLimitWarning": true,
+  
+    // Override the default latexmk tool
+    "latex-workshop.latex.tools": [
+      {
+        "name": "latexmk",
+        "command": "/Library/TeX/texbin/latexmk",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-pdf",
+          "-outdir=%OUTDIR%",
+          "%DOCFILE%"
+        ]
+      }
+    ],
+    "latex-workshop.latex.build.forceRecipeUsage": false,
+  
+    // Make sure the default recipe uses our custom tool
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "latexmk (custom)",
+        "tools": [
+          "latexmk"
+        ]
+      }
+    ]
+  }

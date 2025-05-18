@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.2255859375,
+    "error": 0.7744140625,
+    "gate_count": 114,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.z(\n1\n)\n\nqc.cx(\n1,0\n)\n\nqc.iswap(\n1,2\n)\n\nqc.swap(\n2,0\n)\n\nqc.rz(\n2.7\n,\n2\n)\n\nqc.h(\n0\n)\n\nqc.tdg(\n0\n)\n\nqc.y(\n0\n)\n\nqc.ccx(\n2,1,0\n)\n\nqc.ry(\nnp.pi/4\n,\n1\n)\n\nqc.ryy(\n1.5708\n,\n1,0\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.ryy(\n0.5\n,\n2,1\n)\n\nqc.u(\n1.5708\n,\n2.7\n,\n1.3\n,\n2\n)\n\nqc.s(\n2\n)\n\nqc.swap(\n0,2\n)\n\nqc.cy(\n0,2\n)\n\nqc.cz(\n1,0\n)\n\nqc.rxx(\n1.3\n,\n1,2\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.rz(\n0\n,\n1\n)\n\nqc.id(\n1\n)\n\nqc.ry(\n0\n,\n2\n)\n\nqc.ry(\nnp.pi/4\n,\n2\n)\n\nqc.swap(\n2,1\n)\n\nqc.cswap(\n2,0,1\n)\n\nqc.cx(\n2,1\n)\n\nqc.rxx(\nnp.pi/2\n,\n1,0\n)\n\nqc.cy(\n2,1\n)\n\nqc.ccx(\n1,0,2\n)\n\n## End Diffuser\n\n## Begin Diffuser\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(2)\n\nqc.cx(0,2)\n\nqc.cx(1,2)\n\nqc.h(2)\n\nqc.x(0)\n\nqc.x(1)\n\nqc.x(2)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\nqc.rzx(\n1.5708\n,\n0,2\n)\n\nqc.s(\n1\n)\n\nqc.sdg(\n1\n)\n\nqc.cz(\n2,0\n)\n\nqc.u(\nnp.pi/4\n,\n2.7\n,\n3.1415\n,\n0\n)\n\nqc.cswap(\n1,2,0\n)\n\nqc.z(\n0\n)\n\nqc.ccx(\n0,1,2\n)\n\nqc.cx(\n2,0\n)\n\nqc.ccx(\n2,0,1\n)\n\nqc.cswap(\n1,0,2\n)\n\nqc.y(\n1\n)\n\nqc.ry(\nnp.pi/2\n,\n1\n)\n\nqc.cx(\n1,0\n)\n\nqc.ccx(\n2,1,0\n)\n\nqc.swap(\n1,0\n)\n\nqc.rx(\n2.7\n,\n2\n)\n\nqc.rz(\n1.5708\n,\n1\n)\n\nqc.ccx(\n1,0,2\n)\n\nqc.ccx(\n1,0,2\n)\n\nqc.cswap(\n1,2,0\n)\n\nqc.cz(\n1,2\n)\n\nqc.x(\n0\n)\n\nqc.ccx(\n0,2,1\n)\n\nqc.s(\n2\n)\n\nqc.h(\n1\n)\n\nqc.cy(\n1,0\n)\n\nqc.iswap(\n1,2\n)\n\nqc.iswap(\n2,1\n)\n\nqc.rx(\n2*np.pi\n,\n1\n)\n\n## End Diffuser\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "001": 36,
+      "100": 128,
+      "011": 66,
+      "101": 8,
+      "010": 256,
+      "000": 231,
+      "111": 4,
+      "110": 295
+    },
+    "depth": 82
+  }
+]

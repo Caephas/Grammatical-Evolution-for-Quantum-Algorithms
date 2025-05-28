@@ -1,0 +1,21 @@
+[
+  {
+    "state": "101",
+    "p_marked": 0.1162109375,
+    "error": 0.8837890625,
+    "gate_count": 11,
+    "oracle": "qc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(1)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\n\nqc.h(0)\n\nqc.h(1)\n\nqc.h(2)\n\n## Begin Oracle\nqc.x(1)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(1)\n## End Oracle\n\nqc.measure(0, 0)\n\nqc.measure(1, 1)\n\nqc.measure(2, 2)\n",
+    "counts": {
+      "001": 111,
+      "011": 109,
+      "100": 141,
+      "110": 139,
+      "111": 136,
+      "000": 140,
+      "010": 129,
+      "101": 119
+    },
+    "depth": 5
+  }
+]

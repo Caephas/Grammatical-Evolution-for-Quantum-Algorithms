@@ -1,5 +1,5 @@
 === Marked states: ['000'] ===
-Depth:            170
-Total ops:        276
-Gate counts:      {'rz': 141, 'sx': 93, 'ecr': 37, 'measure': 3, 'x': 2, 'barrier': 1}
+Depth:            177
+Total ops:        283
+Gate counts:      {'rz': 143, 'sx': 90, 'ecr': 37, 'x': 10, 'measure': 3, 'barrier': 1}
 Qubits / Clbits:  127 / 3

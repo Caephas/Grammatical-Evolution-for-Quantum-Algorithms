@@ -140,7 +140,7 @@ GATE_COUNT_TARGET = 20             # Maximum gates
 DEPTH_TARGET = 15                  # Maximum depth
 ```
 
-## 🔮 Future Algorithms
+## Future Algorithms
 
 The framework is designed to be extensible. To implement a new quantum algorithm:
 
@@ -179,7 +179,7 @@ Contributions are welcome! Feel free to:
 - Qiskit - IBM quantum computing SDK
 - Cirq - Google quantum computing framework
 - NumPy, Matplotlib, DEAP - Scientific computing
-- See `requirements.txt` for complete list
+- See `requirements.txt`
 
 ## Acknowledgments
 

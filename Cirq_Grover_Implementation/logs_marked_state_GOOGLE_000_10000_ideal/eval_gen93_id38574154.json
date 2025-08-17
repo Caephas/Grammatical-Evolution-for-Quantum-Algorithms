@@ -1,0 +1,23 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.0592,
+    "error": 0.9408,
+    "gate_count": 33,
+    "depth": 15,
+    "oracle": "circuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\n",
+    "code": "circuit = cirq.Circuit()\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\n## Begin Oracle\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\n## End Oracle\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.Ry(rads= np.pi/2 ).on(qubits[0]))\ncircuit.append(cirq.YY(qubits[2], qubits[1])**1.5 )\ncircuit.append(cirq.ISWAP(qubits[0], qubits[1]))\ncircuit.append(cirq.I(qubits[2]))\n## End Diffuser\ncircuit.append(cirq.measure(qubits[0], key='q0'))\ncircuit.append(cirq.measure(qubits[1], key='q1'))\ncircuit.append(cirq.measure(qubits[2], key='q2'))",
+    "counts": {
+      "011": 3116,
+      "110": 3137,
+      "001": 605,
+      "000": 592,
+      "010": 673,
+      "100": 624,
+      "101": 620,
+      "111": 633
+    },
+    "sim_type": "ideal",
+    "noise_model_used": false
+  }
+]

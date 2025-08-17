@@ -1,0 +1,24 @@
+[
+  {
+    "state": "011",
+    "p_marked": 0.1251,
+    "error": 0.8749,
+    "gate_count": 12,
+    "depth": 8,
+    "oracle": "circuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\n",
+    "code": "circuit = cirq.Circuit()\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.XX(qubits[2], qubits[1])**1.5 )\ncircuit.append(cirq.Rz(rads= np.pi ).on(qubits[1]))\ncircuit.append(cirq.S(qubits[1]))\n## End Diffuser\ncircuit.append(cirq.measure(qubits[0], key='q0'))\ncircuit.append(cirq.measure(qubits[1], key='q1'))\ncircuit.append(cirq.measure(qubits[2], key='q2'))",
+    "counts": {
+      "000": 1282,
+      "001": 1255,
+      "010": 1284,
+      "011": 1251,
+      "100": 1212,
+      "101": 1215,
+      "110": 1234,
+      "111": 1267
+    },
+    "sim_type": "google_qvm_rainbow",
+    "noise_model_used": true,
+    "processor": "rainbow"
+  }
+]

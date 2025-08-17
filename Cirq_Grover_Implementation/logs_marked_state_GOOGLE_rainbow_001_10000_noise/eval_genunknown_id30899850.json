@@ -1,0 +1,24 @@
+[
+  {
+    "state": "001",
+    "p_marked": 0.2154,
+    "error": 0.7846,
+    "gate_count": 39,
+    "depth": 24,
+    "oracle": "circuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\n",
+    "code": "circuit = cirq.Circuit()\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.Rx(rads= np.pi/4 ).on(qubits[1]))\ncircuit.append(cirq.Rz(rads= np.pi ).on(qubits[1]))\ncircuit.append(cirq.Rz(rads= np.pi ).on(qubits[2]))\ncircuit.append((cirq.S**-1).on(qubits[1]))\ncircuit.append(cirq.XX(qubits[0], qubits[2])**1.5 )\ncircuit.append(cirq.CNOT(qubits[0], qubits[1]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.Rz(rads= np.pi/2 ).on(qubits[1]))\ncircuit.append(cirq.Rz(rads= np.pi/2 ).on(qubits[1]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.CZ(qubits[2], qubits[1]))\n## End Diffuser\ncircuit.append(cirq.measure(qubits[0], key='q0'))\ncircuit.append(cirq.measure(qubits[1], key='q1'))\ncircuit.append(cirq.measure(qubits[2], key='q2'))",
+    "counts": {
+      "000": 2217,
+      "001": 2154,
+      "010": 2112,
+      "011": 2090,
+      "100": 377,
+      "101": 359,
+      "110": 353,
+      "111": 338
+    },
+    "sim_type": "google_qvm_rainbow",
+    "noise_model_used": true,
+    "processor": "rainbow"
+  }
+]

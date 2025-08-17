@@ -1,0 +1,21 @@
+{
+  "individual_id": 1,
+  "fitness_evolution": 0.2,
+  "fitness_qvm": 1.0,
+  "fitness_difference": 0.8,
+  "processor": "rainbow",
+  "simulation_type": "google_qvm_rainbow",
+  "target_state": "000",
+  "counts": {
+    "000": 10000
+  },
+  "p_marked_qvm": 1.0,
+  "total_shots": 10000,
+  "requested_shots": 10000,
+  "original_circuit_gates": 28,
+  "original_circuit_depth": 13,
+  "transpiled_circuit_gates": 10,
+  "transpiled_circuit_depth": 7,
+  "transpilation_method": "cirq.optimize_for_target_gateset + SycamoreTargetGateset",
+  "noise_model": "google_qvm_realistic_hardware_calibration"
+}

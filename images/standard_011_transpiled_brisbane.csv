@@ -1,5 +1,0 @@
-=== Marked states: ['011'] ===
-Depth:            185
-Total ops:        290
-Gate counts:      {'rz': 148, 'sx': 91, 'ecr': 39, 'x': 9, 'measure': 3, 'barrier': 1}
-Qubits / Clbits:  127 / 3

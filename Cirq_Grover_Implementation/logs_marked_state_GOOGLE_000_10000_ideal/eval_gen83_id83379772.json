@@ -1,0 +1,23 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.0769,
+    "error": 0.9231,
+    "gate_count": 86,
+    "depth": 48,
+    "oracle": "circuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\n",
+    "code": "circuit = cirq.Circuit()\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\n## Begin Oracle\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\n## End Oracle\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.I(qubits[1]))\ncircuit.append(cirq.ISWAP(qubits[1], qubits[0]))\ncircuit.append(cirq.Ry(rads= np.pi/4 ).on(qubits[1]))\n## End Diffuser\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CZ(qubits[2], qubits[0]))\ncircuit.append(cirq.Ry(rads= np.pi ).on(qubits[0]))\ncircuit.append(cirq.SWAP(qubits[2], qubits[0]))\ncircuit.append(cirq.Ry(rads= 0.314 ).on(qubits[2]))\ncircuit.append(cirq.SWAP(qubits[0], qubits[2]))\ncircuit.append(cirq.ZZ(qubits[1], qubits[2])**0.25 )\ncircuit.append(cirq.XX(qubits[2], qubits[1])**0.5 )\ncircuit.append(cirq.Ry(rads= np.pi/2 ).on(qubits[0]))\ncircuit.append(cirq.Ry(rads= np.pi/2 ).on(qubits[0]))\ncircuit.append(cirq.Ry(rads= 2.7 ).on(qubits[0]))\ncircuit.append(cirq.ZZ(qubits[0], qubits[1])**0.5 )\ncircuit.append(cirq.Ry(rads= 2*np.pi ).on(qubits[0]))\ncircuit.append(cirq.T(qubits[0]))\ncircuit.append(cirq.CZ(qubits[2], qubits[0]))\ncircuit.append(cirq.SWAP(qubits[2], qubits[0]))\ncircuit.append(cirq.Ry(rads= np.pi/2 ).on(qubits[0]))\ncircuit.append(cirq.ZZ(qubits[1], qubits[2])**1.5 )\ncircuit.append(cirq.CSWAP(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.I(qubits[2]))\n## End Diffuser\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CSWAP(qubits[2], qubits[0], qubits[1]))\ncircuit.append(cirq.Ry(rads= np.pi/2 ).on(qubits[0]))\ncircuit.append(cirq.XX(qubits[0], qubits[2])**1 )\n## End Diffuser\ncircuit.append(cirq.measure(qubits[0], key='q0'))\ncircuit.append(cirq.measure(qubits[1], key='q1'))\ncircuit.append(cirq.measure(qubits[2], key='q2'))",
+    "counts": {
+      "001": 2256,
+      "000": 769,
+      "101": 5410,
+      "110": 650,
+      "011": 608,
+      "100": 304,
+      "111": 1,
+      "010": 2
+    },
+    "sim_type": "ideal",
+    "noise_model_used": false
+  }
+]

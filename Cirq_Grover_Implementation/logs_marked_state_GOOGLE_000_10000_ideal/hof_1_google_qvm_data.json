@@ -1,0 +1,28 @@
+{
+  "individual_id": 1,
+  "fitness_evolution": 1.0467,
+  "fitness_qvm": 0.1283,
+  "fitness_difference": 0.9184,
+  "processor": "rainbow",
+  "simulation_type": "google_qvm_rainbow",
+  "target_state": "000",
+  "counts": {
+    "001": 1248,
+    "111": 1236,
+    "110": 1235,
+    "101": 1205,
+    "000": 1283,
+    "010": 1236,
+    "100": 1254,
+    "011": 1303
+  },
+  "p_marked_qvm": 0.1283,
+  "total_shots": 10000,
+  "requested_shots": 10000,
+  "original_circuit_gates": 31,
+  "original_circuit_depth": 15,
+  "transpiled_circuit_gates": 32,
+  "transpiled_circuit_depth": 20,
+  "transpilation_method": "cirq.optimize_for_target_gateset + SycamoreTargetGateset",
+  "noise_model": "google_qvm_realistic_hardware_calibration"
+}

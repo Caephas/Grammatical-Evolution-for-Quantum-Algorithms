@@ -1,0 +1,24 @@
+[
+  {
+    "state": "001",
+    "p_marked": 0.0649,
+    "error": 0.9351,
+    "gate_count": 592,
+    "depth": 371,
+    "oracle": "circuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\n",
+    "code": "circuit = cirq.Circuit()\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\n## Begin Diffuser\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[2]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.X(qubits[2]))\ncircuit.append(cirq.H(qubits[0]))\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.H(qubits[2]))\ncircuit.append(cirq.S(qubits[0]))\ncircuit.append(cirq.CCX(qubits[1], qubits[2], qubits[0]))\ncircuit.append(cirq.Z(qubits[1]))\ncircuit.append(cirq.YY(qubits[0], qubits[2])**1 )\ncircuit.append(cirq.Ry(rads= np.pi/4 ).on(qubits[0]))\ncircuit.append(cirq.Y(qubits[2]))\ncircuit.append(cirq.YY(qubits[1], qubits[0])**0.85 )\ncircuit.append(cirq.XX(qubits[2], qubits[1])**1.5 )\ncircuit.append(cirq.CSWAP(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.Z(qubits[1]))\ncircuit.append(cirq.ISWAP(qubits[2], qubits[1]))\ncircuit.append(cirq.SWAP(qubits[0], qubits[2]))\ncircuit.append(cirq.CZ(qubits[0], qubits[2]))\ncircuit.append(cirq.CCX(qubits[2], qubits[0], qubits[1]))\ncircuit.append(cirq.CCX(qubits[2], qubits[0], qubits[1]))\ncircuit.append(cirq.YY(qubits[2], qubits[1])**0.1 )\ncircuit.append(cirq.H(qubits[1]))\ncircuit.append(cirq.CNOT(qubits[0], qubits[2]))\ncircuit.append(cirq.CNOT(qubits[1], qubits[0]))\ncircuit.append(cirq.Ry(rads= 3.1415 ).on(qubits[1]))\ncircuit.append(cirq.SWAP(qubits[1], qubits[0]))\ncircuit.append(cirq.Ry(rads= 2*np.pi ).on(qubits[1]))\ncircuit.append(cirq.YY(qubits[2], qubits[0])**0.85 )\ncircuit.append(cirq.Y(qubits[0]))\ncircuit.append((cirq.S**-1).on(qubits[1]))\ncircuit.append(cirq.Ry(rads= 0.5 ).on(qubits[0]))\ncircuit.append(cirq.CCZ(qubits[2], qubits[1], qubits[0]))\ncircuit.append(cirq.CCX(qubits[0], qubits[2], qubits[1]))\ncircuit.append((cirq.T**-1).on(qubits[1]))\ncircuit.append(cirq.CSWAP(qubits[1], qubits[0], qubits[2]))\ncircuit.append(cirq.CSWAP(qubits[1], qubits[0], qubits[2]))\n## End Diffuser\n## Begin Oracle\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\ncircuit.append(cirq.CCZ(qubits[0], qubits[1], qubits[2]))\ncircuit.append(cirq.X(qubits[0]))\ncircuit.append(cirq.X(qubits[1]))\n## End Oracle\ncircuit.append(cirq.measure(qubits[0], key='q0'))\ncircuit.append(cirq.measure(qubits[1], key='q1'))\ncircuit.append(cirq.measure(qubits[2], key='q2'))",
+    "counts": {
+      "000": 434,
+      "001": 649,
+      "010": 1933,
+      "011": 1712,
+      "100": 1946,
+      "101": 1659,
+      "110": 1532,
+      "111": 135
+    },
+    "sim_type": "google_qvm_rainbow",
+    "noise_model_used": true,
+    "processor": "rainbow"
+  }
+]

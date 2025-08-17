@@ -1,0 +1,150 @@
+{
+  "early_stopping_triggered": true,
+  "stop_reason": "Hardware targets achieved: fidelity=1.000, gates=16, depth=12",
+  "stop_generation": 15,
+  "metrics_at_stop": {
+    "generation": 15,
+    "fitness": 0.32,
+    "fidelity": 1.0,
+    "gate_count": 37,
+    "depth": 20
+  },
+  "generations_saved": 35,
+  "configuration": {
+    "mode": "nisq_focused",
+    "strategy": "nisq_hierarchical",
+    "patience": {
+      "fitness": 25,
+      "fidelity": 8,
+      "gate_count": 10,
+      "depth": 10,
+      "composite": 15
+    },
+    "min_delta": {
+      "fitness": 0.01,
+      "fidelity": 0.005,
+      "gate_count": 1,
+      "depth": 1
+    },
+    "weights": {
+      "fitness": 0.15,
+      "fidelity": 0.35,
+      "gate_count": 0.3,
+      "depth": 0.2
+    },
+    "min_generations": 15
+  },
+  "metric_histories": {
+    "fitness": [
+      10.9476,
+      10.826600000000001,
+      10.813,
+      10.822700000000001,
+      10.8238,
+      10.813,
+      1.4563000000000001,
+      0.32,
+      0.32,
+      0.32,
+      0.32,
+      0.32,
+      0.32,
+      0.32,
+      0.32,
+      0.32
+    ],
+    "fidelity": [
+      0.4724,
+      0.4934,
+      0.507,
+      0.4973,
+      0.4962,
+      0.507,
+      0.9437,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "gate_count": [
+      21,
+      16,
+      16,
+      16,
+      16,
+      16,
+      70,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "depth": [
+      15,
+      12,
+      12,
+      12,
+      12,
+      12,
+      43,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "composite": [
+      1.9498,
+      1.8973,
+      1.8905,
+      1.8953500000000003,
+      1.8959000000000001,
+      1.8905,
+      0.6201500000000001,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002,
+      0.14400000000000002
+    ]
+  },
+  "best_values": {
+    "fitness": Infinity,
+    "fidelity": 1.0,
+    "gate_count": 16,
+    "depth": 12,
+    "composite": 0.14400000000000002
+  },
+  "patience_counters": {
+    "fitness": 16,
+    "fidelity": 6,
+    "gate_count": 14,
+    "depth": 14,
+    "composite": 6
+  },
+  "generations_since_improvement": {
+    "fitness": 16,
+    "fidelity": 6,
+    "gate_count": 14,
+    "depth": 14,
+    "composite": 6
+  }
+}

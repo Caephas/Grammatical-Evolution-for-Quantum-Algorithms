@@ -1,0 +1,137 @@
+<Program> ::= <Initialize> <HadamardAll> <GroverIterations> <Measure>
+
+<Initialize> ::= "circuit = cirq.Circuit()\n"
+
+<HadamardAll> ::= 
+    "circuit.append(cirq.H(qubits[0]))\n"
+    "circuit.append(cirq.H(qubits[1]))\n"
+    "circuit.append(cirq.H(qubits[2]))\n"
+
+<GroverIterations> ::= <GroverIteration>
+                     | <GroverIteration> <GroverIterations>
+
+<GroverIteration> ::= <OracleBlock> | <DiffuserBlock>
+
+<OracleBlock> ::= "## Begin Oracle\n"
+                  <OptionalOracleVariations>
+                  "## End Oracle\n"
+
+<OptionalOracleVariations> ::= <SmallGateList>
+
+<SmallGateList> ::= <SmallGate>
+                  | <SmallGate> <SmallGateList>
+
+<SmallGate> ::= <SingleQubitGate>
+              | <TwoQubitGate>
+              | <ThreeQubitGate>
+              | <ParameterizedGate>
+
+<DiffuserBlock> ::= "## Begin Diffuser\n"
+                    <StandardDiffuser>
+                    <OptionalGates>
+                    "## End Diffuser\n"
+
+<StandardDiffuser> ::=
+    "circuit.append(cirq.H(qubits[0]))\n"
+    "circuit.append(cirq.H(qubits[1]))\n"
+    "circuit.append(cirq.H(qubits[2]))\n"
+    "circuit.append(cirq.X(qubits[0]))\n"
+    "circuit.append(cirq.X(qubits[1]))\n"
+    "circuit.append(cirq.X(qubits[2]))\n"
+    "circuit.append(cirq.H(qubits[2]))\n"
+    "circuit.append(cirq.CNOT(qubits[0], qubits[2]))\n"
+    "circuit.append(cirq.CNOT(qubits[1], qubits[2]))\n"
+    "circuit.append(cirq.H(qubits[2]))\n"
+    "circuit.append(cirq.X(qubits[0]))\n"
+    "circuit.append(cirq.X(qubits[1]))\n"
+    "circuit.append(cirq.X(qubits[2]))\n"
+    "circuit.append(cirq.H(qubits[0]))\n"
+    "circuit.append(cirq.H(qubits[1]))\n"
+    "circuit.append(cirq.H(qubits[2]))\n"
+
+<OptionalGates> ::= <GateList>
+
+<GateList> ::= <Gate>
+             | <Gate> <GateList>
+
+<Gate> ::= <SingleQubitGate>
+         | <TwoQubitGate>
+         | <ThreeQubitGate>
+         | <ParameterizedGate>
+
+<SingleQubitGate> ::=
+    "circuit.append(cirq.X(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.Y(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.Z(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.H(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.S(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.S**-1(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.T(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.T**-1(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.I(qubits[" <QubitIndex> "]))\n"
+
+<TwoQubitGate> ::=
+    "circuit.append(cirq.CNOT(qubits[" <QubitPair> "]))\n"
+  | "circuit.append(cirq.CZ(qubits[" <QubitPair> "]))\n"
+  | "circuit.append(cirq.SWAP(qubits[" <QubitPair> "]))\n"
+  | "circuit.append(cirq.ISWAP(qubits[" <QubitPair> "]))\n"
+
+<ThreeQubitGate> ::=
+    "circuit.append(cirq.CCX(qubits[" <QubitTriple> "]))\n"
+  | "circuit.append(cirq.CSWAP(qubits[" <QubitTriple> "]))\n"
+  | "circuit.append(cirq.CCZ(qubits[" <QubitTriple> "]))\n"
+
+<ParameterizedGate> ::=
+    "circuit.append(cirq.Rx(rads=" <Angle> ").on(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.Ry(rads=" <Angle> ").on(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.Rz(rads=" <Angle> ").on(qubits[" <QubitIndex> "]))\n"
+  | "circuit.append(cirq.XX(qubits[" <QubitPair> "])**" <AngleFraction> ")\n"
+  | "circuit.append(cirq.YY(qubits[" <QubitPair> "])**" <AngleFraction> ")\n"
+  | "circuit.append(cirq.ZZ(qubits[" <QubitPair> "])**" <AngleFraction> ")\n"
+
+<QubitIndex> ::= "0" | "1" | "2"
+
+<QubitPair> ::=
+    "0], qubits[1"
+  | "1], qubits[0"
+  | "0], qubits[2"
+  | "2], qubits[0"
+  | "1], qubits[2"
+  | "2], qubits[1"
+
+<QubitTriple> ::=
+    "0], qubits[1], qubits[2"
+  | "0], qubits[2], qubits[1"
+  | "1], qubits[0], qubits[2"
+  | "1], qubits[2], qubits[0"
+  | "2], qubits[0], qubits[1"
+  | "2], qubits[1], qubits[0"
+
+<Angle> ::=
+    "0"
+  | "np.pi/4"
+  | "np.pi/2"
+  | "np.pi"
+  | "3*np.pi/2"
+  | "2*np.pi"
+  | "0.5"
+  | "1.3"
+  | "2.7"
+  | "0.314"
+  | "1.5708"
+  | "3.1415"
+
+<AngleFraction> ::=
+    "0.25"
+  | "0.5"
+  | "1"
+  | "1.5"
+  | "2"
+  | "0.1"
+  | "0.4"
+  | "0.85"
+
+<Measure> ::= 
+    "circuit.append(cirq.measure(qubits[0], key='q0'))\n"
+    "circuit.append(cirq.measure(qubits[1], key='q1'))\n"
+    "circuit.append(cirq.measure(qubits[2], key='q2'))\n"

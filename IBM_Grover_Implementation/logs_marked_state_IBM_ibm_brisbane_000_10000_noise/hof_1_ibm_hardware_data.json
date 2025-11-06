@@ -1,0 +1,24 @@
+{
+  "individual_id": 1,
+  "fitness_evolution": 0.2925,
+  "fitness_hardware": 0.28690000000000004,
+  "backend": "ibm_brisbane",
+  "target_state": "000",
+  "counts": {
+    "000": 9731,
+    "100": 97,
+    "010": 65,
+    "001": 91,
+    "101": 13,
+    "110": 2,
+    "011": 1
+  },
+  "p_marked_hw": 0.9731,
+  "total_shots": 10000,
+  "original_gates": 27,
+  "original_depth": 14,
+  "transpiled_gates": 13,
+  "transpiled_depth": 8,
+  "job_id": "d2ipgvuactes73f6gnb0",
+  "timestamp": "2025-08-20T10:47:43.802438"
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.1362,
+    "error": 0.8638,
+    "gate_count": 24,
+    "depth": 12,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\nqc.h(0)\nqc.h(1)\nqc.h(2)\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.rxx( 1.5708 , 2,0 )\nqc.rzx( np.pi , 2,0 )\n## End Diffuser\nqc.measure(0, 0)\nqc.measure(1, 1)\nqc.measure(2, 2)\n",
+    "counts": {
+      "110": 1236,
+      "111": 1240,
+      "001": 1233,
+      "011": 1225,
+      "100": 1239,
+      "000": 1362,
+      "010": 1301,
+      "101": 1164
+    }
+  }
+]

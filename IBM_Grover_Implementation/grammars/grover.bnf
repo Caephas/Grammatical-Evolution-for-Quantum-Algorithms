@@ -75,7 +75,6 @@
   | "qc.cy(" <TwoDistinctQubits> ")\n"
   | "qc.cz(" <TwoDistinctQubits> ")\n"
   | "qc.swap(" <TwoDistinctQubits> ")\n"
-  | "qc.iswap(" <TwoDistinctQubits> ")\n"
 
 <ThreeQubitGate> ::=
     "qc.ccx(" <ThreeDistinctQubits> ")\n"

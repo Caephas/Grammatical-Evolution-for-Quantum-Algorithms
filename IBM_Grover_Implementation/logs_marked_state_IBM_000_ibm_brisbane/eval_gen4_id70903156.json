@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.0833,
+    "error": 0.9167,
+    "gate_count": 31,
+    "depth": 17,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\nqc.h(0)\nqc.h(1)\nqc.h(2)\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cx( 0,1 )\nqc.rz( 0 , 0 )\nqc.h( 0 )\nqc.cx( 0,2 )\nqc.rzx( 1.3 , 0,1 )\nqc.u( 0 , 1.3 , 0.5 , 0 )\nqc.rx( 3.1415 , 1 )\nqc.rzx( 1.5708 , 2,0 )\nqc.ry( 0.314 , 2 )\n## End Diffuser\nqc.measure(0, 0)\nqc.measure(1, 1)\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 847,
+      "010": 852,
+      "000": 833,
+      "011": 1659,
+      "001": 1646,
+      "100": 1637,
+      "110": 1659,
+      "111": 867
+    }
+  }
+]

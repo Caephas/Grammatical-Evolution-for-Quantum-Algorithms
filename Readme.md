@@ -190,3 +190,4 @@ Contributions are welcome! Feel free to:
 ---
 
 *This project demonstrates that evolutionary computation can effectively tackle the challenge of quantum circuit synthesis, opening new possibilities for automated quantum algorithm design.*
+

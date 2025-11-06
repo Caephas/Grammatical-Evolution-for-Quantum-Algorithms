@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.0605,
+    "error": 0.9395,
+    "gate_count": 115,
+    "depth": 78,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\nqc.h(0)\nqc.h(1)\nqc.h(2)\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.swap( 2,1 )\nqc.cy( 1,0 )\nqc.cz( 1,0 )\nqc.rzz( 1.3 , 1,2 )\nqc.cz( 2,0 )\nqc.cx( 0,1 )\nqc.rz( np.pi/4 , 1 )\nqc.ry( np.pi/2 , 2 )\nqc.x( 2 )\nqc.sdg( 1 )\nqc.z( 0 )\nqc.cy( 2,1 )\nqc.u( 0.5 , np.pi , 0.314 , 2 )\nqc.rx( np.pi , 2 )\nqc.rx( 0 , 1 )\nqc.cx( 2,1 )\nqc.rz( 0.5 , 0 )\nqc.ccx( 2,0,1 )\nqc.cz( 0,2 )\nqc.swap( 2,0 )\nqc.cz( 2,1 )\nqc.swap( 0,1 )\nqc.cx( 1,2 )\nqc.rxx( np.pi/2 , 0,2 )\nqc.cz( 1,2 )\nqc.id( 1 )\nqc.cswap( 1,2,0 )\nqc.s( 1 )\nqc.ccx( 0,1,2 )\nqc.ry( 3.1415 , 2 )\n## End Diffuser\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cx( 1,2 )\nqc.ccx( 2,0,1 )\nqc.swap( 1,2 )\nqc.rzx( np.pi/2 , 2,0 )\nqc.ccx( 2,1,0 )\nqc.z( 1 )\nqc.ccx( 1,0,2 )\nqc.h( 0 )\nqc.z( 1 )\nqc.s( 1 )\nqc.h( 1 )\nqc.cswap( 2,0,1 )\nqc.h( 1 )\nqc.swap( 0,1 )\nqc.ryy( 3*np.pi/2 , 1,0 )\nqc.cz( 1,2 )\nqc.cy( 0,1 )\nqc.y( 2 )\nqc.cz( 2,1 )\nqc.ccx( 0,2,1 )\nqc.cswap( 1,0,2 )\nqc.ccx( 0,2,1 )\nqc.cy( 1,2 )\nqc.sdg( 0 )\nqc.rz( np.pi/2 , 0 )\nqc.cswap( 0,2,1 )\nqc.ccx( 1,2,0 )\nqc.rzx( 0.5 , 2,0 )\nqc.z( 1 )\n## End Diffuser\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\nqc.measure(0, 0)\nqc.measure(1, 1)\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 922,
+      "110": 361,
+      "111": 973,
+      "100": 114,
+      "011": 2422,
+      "001": 1732,
+      "000": 605,
+      "010": 2871
+    }
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.1302,
+    "error": 0.8698,
+    "gate_count": 107,
+    "depth": 71,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\nqc.h(0)\nqc.h(1)\nqc.h(2)\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cx( 2,1 )\nqc.ccx( 0,2,1 )\nqc.cy( 0,1 )\nqc.cx( 2,1 )\nqc.tdg( 2 )\nqc.cz( 1,0 )\nqc.x( 1 )\nqc.ry( 1.5708 , 1 )\nqc.cz( 0,1 )\nqc.u( np.pi/4 , 0.5 , 2*np.pi , 1 )\nqc.t( 1 )\nqc.id( 0 )\nqc.h( 2 )\nqc.rxx( 1.3 , 1,2 )\nqc.ryy( np.pi/4 , 0,1 )\nqc.ry( 1.5708 , 2 )\nqc.cswap( 0,2,1 )\nqc.swap( 0,1 )\nqc.ry( 2.7 , 1 )\nqc.cswap( 0,2,1 )\nqc.cswap( 1,0,2 )\nqc.cx( 0,2 )\nqc.s( 0 )\nqc.z( 2 )\nqc.cx( 0,2 )\nqc.cswap( 0,2,1 )\nqc.cz( 2,1 )\nqc.rzz( 0.314 , 1,0 )\nqc.rxx( 1.5708 , 1,0 )\nqc.ccx( 2,1,0 )\nqc.ryy( 3*np.pi/2 , 1,0 )\n## End Diffuser\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cy( 2,0 )\nqc.tdg( 0 )\nqc.cy( 1,2 )\nqc.cswap( 2,0,1 )\nqc.cx( 1,2 )\nqc.rx( 3*np.pi/2 , 0 )\nqc.cswap( 1,2,0 )\nqc.cz( 0,1 )\nqc.sdg( 2 )\nqc.cx( 0,1 )\nqc.cswap( 0,1,2 )\nqc.swap( 0,2 )\nqc.swap( 2,0 )\nqc.rz( 1.3 , 2 )\nqc.x( 2 )\nqc.ry( 0.5 , 1 )\nqc.cswap( 1,2,0 )\nqc.ccx( 1,2,0 )\nqc.ccx( 2,0,1 )\nqc.u( np.pi , 3*np.pi/2 , 3.1415 , 0 )\nqc.t( 2 )\nqc.cswap( 0,1,2 )\nqc.cx( 2,1 )\nqc.cx( 1,2 )\nqc.ccx( 1,0,2 )\nqc.y( 2 )\nqc.cz( 0,1 )\nqc.s( 1 )\nqc.cswap( 0,2,1 )\n## End Diffuser\nqc.measure(0, 0)\nqc.measure(1, 1)\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 114,
+      "001": 405,
+      "100": 788,
+      "011": 1150,
+      "010": 795,
+      "000": 1302,
+      "110": 993,
+      "111": 4453
+    }
+  }
+]

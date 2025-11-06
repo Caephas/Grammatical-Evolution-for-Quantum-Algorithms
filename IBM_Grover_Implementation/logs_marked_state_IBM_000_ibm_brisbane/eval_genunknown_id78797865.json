@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.1195,
+    "error": 0.8805000000000001,
+    "gate_count": 99,
+    "depth": 70,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\nqc.h(0)\nqc.h(1)\nqc.h(2)\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cswap( 1,2,0 )\nqc.cx( 1,0 )\nqc.s( 0 )\nqc.swap( 1,0 )\nqc.cx( 1,0 )\nqc.ccx( 0,2,1 )\nqc.ccx( 1,0,2 )\nqc.t( 2 )\nqc.cy( 2,1 )\nqc.cz( 2,0 )\nqc.ry( np.pi/4 , 1 )\nqc.t( 1 )\nqc.z( 2 )\nqc.cx( 0,1 )\nqc.rxx( 3.1415 , 2,1 )\nqc.rx( 1.3 , 2 )\nqc.cz( 2,1 )\nqc.s( 1 )\nqc.rzz( 2.7 , 2,0 )\nqc.ccx( 2,1,0 )\nqc.ccx( 1,2,0 )\nqc.cswap( 2,0,1 )\nqc.cz( 1,2 )\nqc.cswap( 2,1,0 )\nqc.id( 0 )\nqc.rx( np.pi/4 , 1 )\nqc.cswap( 0,1,2 )\nqc.ryy( 1.3 , 0,1 )\nqc.rx( 3.1415 , 1 )\nqc.rx( 1.5708 , 1 )\nqc.cswap( 1,0,2 )\n## End Diffuser\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cy( 2,0 )\nqc.ccx( 0,1,2 )\nqc.cz( 0,2 )\nqc.z( 0 )\nqc.cz( 1,0 )\nqc.z( 0 )\nqc.swap( 0,2 )\nqc.cswap( 0,1,2 )\nqc.ryy( 1.5708 , 1,0 )\nqc.h( 2 )\nqc.rzz( 1.5708 , 2,0 )\nqc.t( 0 )\nqc.sdg( 0 )\nqc.sdg( 2 )\nqc.cx( 2,0 )\nqc.cswap( 2,0,1 )\nqc.ccx( 2,0,1 )\nqc.ry( 0 , 1 )\nqc.u( 2*np.pi , np.pi/4 , np.pi/4 , 0 )\nqc.rx( 3.1415 , 0 )\nqc.tdg( 0 )\nqc.id( 1 )\nqc.cx( 2,0 )\nqc.x( 1 )\nqc.z( 0 )\nqc.rzz( 3*np.pi/2 , 0,1 )\nqc.u( np.pi/4 , 3.1415 , 2.7 , 0 )\nqc.cswap( 2,0,1 )\nqc.swap( 0,2 )\nqc.cswap( 0,1,2 )\n## End Diffuser\nqc.measure(0, 0)\nqc.measure(1, 1)\nqc.measure(2, 2)\n",
+    "counts": {
+      "001": 1872,
+      "011": 415,
+      "100": 272,
+      "110": 160,
+      "111": 4649,
+      "010": 525,
+      "000": 1195,
+      "101": 912
+    }
+  }
+]

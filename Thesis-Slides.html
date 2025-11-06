@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammatical Evolution for Quantum Algorithms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow: hidden;
+        }
+        
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            display: none;
+            position: relative;
+            animation: slideIn 0.5s ease-out;
+            overflow-y: auto;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-size: 42px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 32px;
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+        
+        p, li {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .metric-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .metric-box h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .comparison-card {
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .canonical-card {
+            background: #ffebee;
+            border: 2px solid #ef5350;
+        }
+        
+        .evolved-card {
+            background: #e8f5e9;
+            border: 2px solid #66bb6a;
+        }
+        
+        .big-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .canonical-card .big-number {
+            color: #ef5350;
+        }
+        
+        .evolved-card .big-number {
+            color: #66bb6a;
+        }
+        
+        .navigation {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+        
+        button {
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .title-slide {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .title-slide h1 {
+            font-size: 56px;
+            margin-bottom: 40px;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+        
+        .author {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .affiliation {
+            font-size: 20px;
+            color: #666;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        
+        .results-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .results-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .impact-statement {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .circuit-comparison {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .circuit-box {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .arrow {
+            font-size: 48px;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="title-slide">
+                <h1>Grammatical Evolution for Quantum Algorithms</h1>
+                <p class="subtitle">Achieving Near-Ideal Performance on NISQ Hardware</p>
+                <p class="author">Arinze Obidiegwu</p>
+                <p class="affiliation">University of Limerick</p>
+                <p class="affiliation">MSc in Artificial Intelligence and Machine Learning</p>
+            </div>
+            <div class="slide-number">1/12</div>
+        </div>
+        
+        <!-- Slide 2: The Problem -->
+        <div class="slide">
+            <h1>The NISQ Challenge</h1>
+            <div class="metric-box">
+                <h3>Current Reality of Quantum Computing</h3>
+                <ul>
+                    <li>Noisy Intermediate-Scale Quantum (NISQ) devices</li>
+                    <li>Limited qubit counts & high error rates</li>
+                    <li>Canonical algorithms fail on real hardware</li>
+                </ul>
+            </div>
+            <p style="margin-top: 40px; font-size: 26px;"><strong>Key Challenge:</strong> Standard Grover circuits achieve only <span class="highlight">57-68% fidelity</span> on IBM hardware - barely better than random guessing!</p>
+            <div class="impact-statement">
+                We need circuits designed FOR hardware, not despite it
+            </div>
+            <div class="slide-number">2/12</div>
+        </div>
+        
+        <!-- Slide 3: The Solution -->
+        <div class="slide">
+            <h1>Our Approach: Grammatical Evolution</h1>
+            <h3>A Paradigm Shift in Circuit Design</h3>
+            <div class="comparison-grid">
+                <div class="canonical-card comparison-card">
+                    <h3>Traditional Approach</h3>
+                    <p>One universal circuit</p>
+                    <p>Different oracles</p>
+                    <p>Mathematically elegant</p>
+                    <p>Hardware-agnostic</p>
+                </div>
+                <div class="evolved-card comparison-card">
+                    <h3>Our GE Approach</h3>
+                    <p>Bespoke circuits per state</p>
+                    <p>Evolved from scratch</p>
+                    <p>Performance-optimized</p>
+                    <p>Hardware-aware</p>
+                </div>
+            </div>
+            <div class="metric-box">
+                <p><strong>Key Innovation:</strong> Using evolutionary computation to discover circuits that emerge from fitness-based selection rather than human design</p>
+            </div>
+            <div class="slide-number">3/12</div>
+        </div>
+        
+        <!-- Slide 4: Main Results Overview -->
+        <div class="slide">
+            <h1>🎯 Breakthrough Results</h1>
+            <div class="comparison-grid">
+                <div class="canonical-card comparison-card">
+                    <h3>Canonical Grover</h3>
+                    <div class="big-number">57-68%</div>
+                    <p>Fidelity on Hardware</p>
+                </div>
+                <div class="evolved-card comparison-card">
+                    <h3>Evolved Circuits</h3>
+                    <div class="big-number">88-98%</div>
+                    <p>Fidelity on Hardware</p>
+                </div>
+            </div>
+            <div class="impact-statement">
+                Up to 40 percentage points improvement - transforming Grover from theoretical curiosity to practical tool!
+            </div>
+            <div class="slide-number">4/12</div>
+        </div>
+        
+        <!-- Slide 5: Detailed Performance Metrics -->
+        <div class="slide">
+            <h1>Performance Across All 3-Qubit States</h1>
+            <table class="results-table">
+                <tr>
+                    <th>Target State</th>
+                    <th>Canonical Fidelity</th>
+                    <th>Evolved Fidelity</th>
+                    <th>Improvement</th>
+                </tr>
+                <tr>
+                    <td>|000⟩</td>
+                    <td>63.3%</td>
+                    <td><strong>94.8%</strong></td>
+                    <td>+31.5%</td>
+                </tr>
+                <tr>
+                    <td>|010⟩</td>
+                    <td>61.8%</td>
+                    <td><strong>96.1%</strong></td>
+                    <td>+34.3%</td>
+                </tr>
+                <tr>
+                    <td>|100⟩</td>
+                    <td>68.5%</td>
+                    <td><strong>97.7%</strong></td>
+                    <td>+29.2%</td>
+                </tr>
+                <tr>
+                    <td>|111⟩</td>
+                    <td>62.9%</td>
+                    <td><strong>95.5%</strong></td>
+                    <td>+32.6%</td>
+                </tr>
+            </table>
+            <p style="margin-top: 30px; text-align: center; font-size: 24px;">
+                <span class="highlight">Every single evolved circuit outperforms its canonical counterpart</span>
+            </p>
+            <div class="slide-number">5/12</div>
+        </div>
+        
+        <!-- Slide 6: Circuit Efficiency -->
+        <div class="slide">
+            <h1>Dramatic Resource Reduction</h1>
+            <div class="circuit-comparison">
+                <div class="circuit-box">
+                    <h3>Canonical Grover</h3>
+                    <div class="big-number" style="color: #ef5350;">283</div>
+                    <p>Gates</p>
+                    <div class="big-number" style="color: #ef5350;">177</div>
+                    <p>Depth</p>
+                </div>
+                <div class="arrow">→</div>
+                <div class="circuit-box">
+                    <h3>Evolved Circuit</h3>
+                    <div class="big-number" style="color: #66bb6a;">21</div>
+                    <p>Gates</p>
+                    <div class="big-number" style="color: #66bb6a;">11</div>
+                    <p>Depth</p>
+                </div>
+            </div>
+            <div class="metric-box">
+                <h3 style="text-align: center;">Efficiency Gains</h3>
+                <ul>
+                    <li><strong>93%</strong> reduction in gate count</li>
+                    <li><strong>94%</strong> reduction in circuit depth</li>
+                    <li>Fewer error-prone two-qubit gates (ECR)</li>
+                </ul>
+            </div>
+            <div class="slide-number">6/12</div>
+        </div>
+        
+        <!-- Slide 7: How It Works -->
+        <div class="slide">
+            <h1>The GE Pipeline</h1>
+            <h3>From Grammar to Quantum Circuit</h3>
+            <ol style="font-size: 20px; line-height: 1.8;">
+                <li><strong>Define Grammar:</strong> BNF rules specify valid quantum operations</li>
+                <li><strong>Generate Population:</strong> Random integer genomes</li>
+                <li><strong>Decode:</strong> Map genomes → quantum circuits via grammar</li>
+                <li><strong>Evaluate:</strong> Simulate & score (fidelity + efficiency)</li>
+                <li><strong>Evolve:</strong> Selection, crossover, mutation</li>
+                <li><strong>Validate:</strong> Test best circuits on IBM hardware</li>
+            </ol>
+            <div class="metric-box" style="margin-top: 20px;">
+                <p><strong>Key Insight:</strong> Evolution naturally discovers hardware-friendly patterns without explicit noise modeling</p>
+            </div>
+            <div class="slide-number">7/12</div>
+        </div>
+        
+        <!-- Slide 8: Visual Impact -->
+        <div class="slide">
+            <h1>Circuit Structure Comparison</h1>
+            <div style="text-align: center; margin: 40px 0;">
+                <h3>Canonical Grover (|000⟩)</h3>
+                <div style="background: #ffebee; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p>Depth: 177 | Gates: 283 | Fidelity: 63.3%</p>
+                    <p style="font-size: 18px; color: #666;">Complex, deep, generic structure</p>
+                </div>
+                
+                <div class="arrow" style="margin: 20px 0;">↓</div>
+                
+                <h3>Evolved Circuit (|000⟩)</h3>
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p>Depth: 11 | Gates: 21 | Fidelity: 94.8%</p>
+                    <p style="font-size: 18px; color: #666;">Compact, shallow, state-specific</p>
+                </div>
+            </div>
+            <div class="impact-statement">
+                Evolved circuits are visually and structurally different - they don't follow textbook patterns
+            </div>
+            <div class="slide-number">8/12</div>
+        </div>
+        
+        <!-- Slide 9: Broader Validation -->
+        <div class="slide">
+            <h1>Generalizability: Deutsch-Jozsa</h1>
+            <h3>Proof of Concept Beyond Grover</h3>
+            <div class="metric-box">
+                <p>Successfully evolved circuits for Deutsch-Jozsa algorithm:</p>
+                <ul>
+                    <li>Correctly classified all 4 oracle types</li>
+                    <li>Demonstrated symbolic generalization</li>
+                    <li>Validated grammar flexibility</li>
+                </ul>
+            </div>
+            <p style="margin-top: 30px; font-size: 24px;"><strong>Significance:</strong> GE approach works across different quantum algorithms, not just Grover</p>
+            <div class="impact-statement">
+                Framework is ready for VQE, QAOA, and other quantum algorithms
+            </div>
+            <div class="slide-number">9/12</div>
+        </div>
+        
+        <!-- Slide 10: Why This Matters -->
+        <div class="slide">
+            <h1>Real-World Impact</h1>
+            <h3>From Theory to Practice</h3>
+            <div class="metric-box">
+                <h3>Before Our Work</h3>
+                <ul>
+                    <li>Grover barely functional on real hardware (57-68%)</li>
+                    <li>Deep circuits prone to decoherence</li>
+                    <li>Limited to simulation or ideal conditions</li>
+                </ul>
+            </div>
+            <div class="metric-box" style="background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);">
+                <h3>After Our Work</h3>
+                <ul>
+                    <li>Near-ideal fidelity on NISQ devices (88-98%)</li>
+                    <li>Shallow circuits resilient to noise</li>
+                    <li>Practical quantum advantage achievable today</li>
+                </ul>
+            </div>
+            <div class="slide-number">10/12</div>
+        </div>
+        
+        <!-- Slide 11: Future Directions -->
+        <div class="slide">
+            <h1>Future Research Directions</h1>
+            <h3>Building on Success</h3>
+            <ul style="font-size: 20px; line-height: 1.8;">
+                <li><strong>Scale Up:</strong> 4-5 qubit problems and beyond</li>
+                <li><strong>Hybrid Approaches:</strong> Balance specialization with generality</li>
+                <li><strong>New Algorithms:</strong> VQE, QAOA, QML circuits</li>
+                <li><strong>Hardware Integration:</strong> Real-time feedback from QPUs</li>
+                <li><strong>Multi-objective:</strong> Optimize fidelity, depth, and error rates</li>
+            </ul>
+            <div class="impact-statement">
+                GE could revolutionize how we design quantum algorithms for NISQ era
+            </div>
+            <div class="slide-number">11/12</div>
+        </div>
+        
+        <!-- Slide 12: Conclusions -->
+        <div class="slide">
+            <h1>Key Takeaways</h1>
+            <div class="metric-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <h3 style="text-align: center; font-size: 32px;">We Made Grover's Algorithm Practical</h3>
+            </div>
+            <ul style="font-size: 22px; line-height: 1.8; margin-top: 30px;">
+                <li>✓ <span class="highlight">97.7%</span> peak fidelity on real hardware</li>
+                <li>✓ <span class="highlight">94%</span> reduction in circuit depth</li>
+                <li>✓ <span class="highlight">First</span> application of GE to quantum circuits</li>
+                <li>✓ <span class="highlight">Validated</span> on IBM quantum hardware</li>
+            </ul>
+            <div style="text-align: center; margin-top: 40px;">
+                <h2>Thank You!</h2>
+                <p style="font-size: 22px; color: #666;">Questions?</p>
+            </div>
+            <div class="slide-number">12/12</div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+            <button id="nextBtn" onclick="changeSlide(1)">Next</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            // Update button states
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+        
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+        
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

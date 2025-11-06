@@ -1,0 +1,21 @@
+[
+  {
+    "state": "000",
+    "p_marked": 0.1394,
+    "error": 0.8606,
+    "gate_count": 120,
+    "depth": 79,
+    "oracle": "qc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n",
+    "code": "qr = QuantumRegister(3, name='q')\ncr = ClassicalRegister(3, name='cr')\nqc = QuantumCircuit(qr, cr)\nqc.h(0)\nqc.h(1)\nqc.h(2)\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\n## Begin Oracle\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.mcx(list(range(2)), 2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\n## End Oracle\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.ryy( 1.5708 , 0,1 )\nqc.cswap( 2,0,1 )\nqc.ccx( 0,1,2 )\nqc.id( 1 )\nqc.sdg( 1 )\nqc.s( 1 )\nqc.rzx( 1.3 , 0,1 )\nqc.s( 0 )\nqc.swap( 2,1 )\nqc.cz( 0,2 )\nqc.sdg( 2 )\nqc.cy( 1,0 )\nqc.u( 3*np.pi/2 , np.pi/2 , np.pi/4 , 0 )\nqc.ryy( 0 , 1,2 )\nqc.rzz( 0.5 , 2,1 )\nqc.cz( 2,1 )\nqc.rzz( 1.5708 , 0,1 )\nqc.ccx( 1,0,2 )\nqc.ry( 0 , 2 )\nqc.y( 2 )\nqc.rz( 2*np.pi , 0 )\nqc.cx( 1,2 )\nqc.cx( 1,2 )\nqc.cx( 0,1 )\nqc.cy( 0,1 )\nqc.cswap( 0,2,1 )\nqc.cx( 2,1 )\nqc.ccx( 0,2,1 )\n## End Diffuser\n## Begin Diffuser\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(2)\nqc.cx(0,2)\nqc.cx(1,2)\nqc.h(2)\nqc.x(0)\nqc.x(1)\nqc.x(2)\nqc.h(0)\nqc.h(1)\nqc.h(2)\nqc.cswap( 0,1,2 )\nqc.cswap( 0,2,1 )\nqc.cy( 2,0 )\nqc.t( 1 )\nqc.cy( 2,1 )\nqc.cy( 1,0 )\nqc.swap( 2,1 )\nqc.ccx( 2,0,1 )\nqc.rxx( 0.314 , 2,0 )\nqc.cx( 0,2 )\nqc.cx( 2,1 )\nqc.ccx( 2,1,0 )\nqc.swap( 2,0 )\nqc.x( 1 )\nqc.u( np.pi/2 , 0.314 , 0.314 , 0 )\nqc.ccx( 0,1,2 )\nqc.rzz( 1.5708 , 1,2 )\nqc.x( 1 )\nqc.rxx( 2.7 , 2,0 )\nqc.cswap( 2,0,1 )\nqc.s( 2 )\nqc.cswap( 2,1,0 )\nqc.t( 2 )\nqc.rx( 1.5708 , 2 )\nqc.cy( 1,2 )\nqc.sdg( 0 )\nqc.ry( np.pi , 1 )\n## End Diffuser\nqc.measure(0, 0)\nqc.measure(1, 1)\nqc.measure(2, 2)\n",
+    "counts": {
+      "101": 662,
+      "001": 355,
+      "100": 3709,
+      "011": 828,
+      "000": 1394,
+      "010": 1269,
+      "111": 877,
+      "110": 906
+    }
+  }
+]

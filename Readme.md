@@ -1,8 +1,8 @@
 # Grammatical Evolution for Quantum Algorithm Synthesis
-
+  
 An AutoML system that automatically designs and optimizes quantum circuits using grammatical evolution, with implementations for both IBM Qiskit and Google Cirq platforms.
 
-## Overview
+## Overview 
 
 This repository demonstrates how **Grammatical Evolution (GE)** can be used to automatically synthesize quantum circuits that implement specific quantum algorithms. Rather than manually designing circuits, the system evolves them from scratch using a BNF grammar to ensure syntactic validity and genetic operators to optimize performance.
 
